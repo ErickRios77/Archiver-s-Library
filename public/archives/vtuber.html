@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archiver's Library - </title>
+
+    <script src="../js/vtuber.js"></script>
+</head>
+<body>
+    <div id="nome"></div>
+    <div id="desc"></div>
+    <div id="debut"></div>
+    <div id="fan"></div>
+    <div id="mark"></div>
+    <div id="ilust"></div>
+</body>
+</html>
+
+<script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const id = urlParams.get('id')
+    window.onload = infoVtuber(id)
+</script>

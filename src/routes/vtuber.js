@@ -12,4 +12,8 @@ router.get("/listar", function (req, res) {
     vtuberController.listar(req, res);
 });
 
+router.get("/buscarId/:idVtuber", function (req, res) {
+    vtuberController.buscarPorId(req, res);
+});
+
 module.exports = router;
