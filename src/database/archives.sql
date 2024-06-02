@@ -20,23 +20,16 @@ CREATE TABLE geracao(
 CREATE TABLE vtuber(
 	idVtuber INT PRIMARY KEY AUTO_INCREMENT,
     nomeVtuber VARCHAR(45) NOT NULL,
-    descVtuber VARCHAR(200),
+    descVtuber VARCHAR(1000),
     dtDebutVtuber DATE,
     fanName VARCHAR(45),
     oshiMark VARCHAR(3),
     ilustrador VARCHAR(45),
-    fkAgencia INT,
+    modelVtuber VARCHAR(154) DEFAULT '/assets/Logo.png',
+    fkAgencia INT DEFAULT 1,
     fkGeracao INT,
     FOREIGN KEY (fkAgencia) REFERENCES agencia(idAgencia),
     FOREIGN KEY (fkGeracao) REFERENCES geracao(idGeracao)
-);
-
-CREATE TABLE modelVtuber(
-	idModel INT,
-    enderecoModel VARCHAR(154),
-    fkVtuber INT UNIQUE,
-    FOREIGN KEY (fkVtuber) REFERENCES vtuber(idVtuber),
-    PRIMARY KEY (idModel, fkVtuber)
 );
 
 CREATE TABLE apelidos(
@@ -72,6 +65,19 @@ CREATE TABLE contato(
     idContato INT PRIMARY KEY,
     emailContato VARCHAR(156) NOT NULL,
     assuntoContato VARCHAR(45),
-    msgContato VARCHAR(200),
+    msgContato VARCHAR(1000),
     dtContato DATETIME NOT NULL
 );
+
+INSERT INTO agencia(nomeAgencia, logoAgencia)
+VALUES  ('Independente', '/assets/Logo.png'),
+        ('V-Dere', '/assets/agencias/vdere-icon.png');
+
+INSERT INTO geracao(nomeGeracao, fkAgencia)
+VALUES ('Gen 1', 2);
+
+INSERT INTO vtuber (nomeVtuber, descVtuber, dtDebutVtuber, fanName, oshiMark, ilustrador, modelVtuber, fkAgencia, fkGeracao)
+VALUES  ('Elia Stellaria', 'Elia Stellaria is an independent female English-speaking Virtual YouTuber. Together with Mozumi Pichi, Airi Viridis and kirispica, she is part of the group V-Dere. Closely related to the "This banana" cult.' , '2023-09-30', 'Starling and Stananas', '💌✨', 'Loulou_lou', '/assets/vtubers/Elia_V-Dere_Portrait.png', 2, 1),
+        ('Airi Viridis', 'Airi Viridis is an independent female English-speaking Virtual YouTuber with a focus on ASMR scenarios, table-top roleplaying/RPGs and general gameplay content. Together with Elia Stellaria, kirispica and Mozumi Pichi, she is part of the group V-Dere.' , '2023-04-12', '', '🩰🦇', 'Hitsu', '/assets/vtubers/Airi_V-Dere_Portrait.png', 2, 1),
+        ('Mozumi Pichi', 'Mozumi Pichi (formerly Gezu Gezu) is an independent female English-speaking Virtual YouTuber. Together with Airi Viridis, Elia Stellaria, and kirispica, she is part of the group V-Dere.' , '2023-09-29', 'Mozzumites', '🍹', 'Ayaoshiro', '/assets/vtubers/Mozumi_V-Dere_Portrait.png', 2, 1),
+        ('Kirispica', 'kirispica is an independent female English-speaking Virtual YouTuber and VSinger. Together with Airi Viridis, Elia Stellaria, and Mozumi Pichi, she is part of the group V-Dere.' , '2021-09-19', '', '💭💗', 'Azit', '/assets/vtubers/Spica_V-Dere_Portrait.png', 2, 1);
