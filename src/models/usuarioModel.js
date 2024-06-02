@@ -1,9 +1,18 @@
 var database = require("../database/config");
 
 function autenticar(emailNome, senha){
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", emailNome, senha)
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function login(): ", emailNome, senha)
     var instrucaoSql = `
-        SELECT idUsuario, nomeUsuario, emailUsuario, senhaUsuario, generoUsuario, dtNasc, nacionalidade, dtCadastro, oshi FROM usuario WHERE senhaUsuario = '${senha}' AND (emailUsuario = '${emailNome}' OR nomeUsuario = '${emailNome}');
+        SELECT idUsuario, nomeUsuario, emailUsuario FROM usuario WHERE senhaUsuario = '${senha}' AND (emailUsuario = '${emailNome}' OR nomeUsuario = '${emailNome}');
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    
+    return database.executar(instrucaoSql);
+}
+
+function registrarLogin(emailNome){
+    var instrucaoSql = `
+        INSERT INTO historicoLogin(dtLogin, fkUsuario) VALUES(NOW(), (SELECT idUsuario FROM usuario WHERE emailUsuario = '${emailNome}' OR nomeUsuario = '${emailNome}'));
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -21,7 +30,19 @@ function cadastrar(nome, email, senha, genero, dtNasc, nacionalidade, oshi){
     return database.executar(instrucaoSql);
 }
 
+function verificarCadastro(nome, email){
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function verificarCadastro():", nome, email);
+
+    var instrucaoSql = `
+        SELECT idUsuario FROM usuario WHERE nomeUsuario = '${nome}' OR emailUsuario = '${email}'
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    verificarCadastro,
+    registrarLogin
 };

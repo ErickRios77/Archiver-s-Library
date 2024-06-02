@@ -11,7 +11,6 @@ function cadastrar() {
     var nacionalidadeVar = nacionalidade.value;
     var oshiVar = oshi.value;
 
-    let podeCadastrar=0;
     if (
         nomeVar == "" ||
         emailVar == "" ||
@@ -19,17 +18,19 @@ function cadastrar() {
         confirmacaoSenhaVar == "" 
     ) {
         alert('Preencha todos os campos marcados com "*"!')
-    } else { podeCadastrar++ }
+        return false
+    }
     if (!(emailVar.includes("@")) || !(emailVar.includes(".com"))){
         alert('Email deve conter "@" e ".com"!')
-    } else { podeCadastrar++ }
+        return false
+    }
     if (confirmacaoSenhaVar != senhaVar){
         alert('Campos de senha e confirmação de senha estão divergentes!')
-    } else { podeCadastrar++ }
+        return false
+    }
 
     // Enviando o valor da nova input
-    if(podeCadastrar==3){
-        fetch("/usuario/cadastrar", {
+    fetch("/usuario/cadastrar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -57,13 +58,15 @@ function cadastrar() {
                     }, "2000");
 
                 } else {
+                    resposta.json().then((message) => {
+                        alert(message.erro)
+                    })
                     throw "Houve um erro ao tentar realizar o cadastro!";
                 }
             })
             .catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
             });
-    }
 
     return false;
 }

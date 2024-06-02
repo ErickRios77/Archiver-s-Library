@@ -19,7 +19,15 @@ function autenticar(req, res) {
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
 
-                    } else if (resultadoAutenticar.length == 0) {
+                        res.json({
+                            id: resultadoAutenticar[0].idUsuario,
+                            email: resultadoAutenticar[0].emailUsuario,
+                            nome: resultadoAutenticar[0].nomeUsuario
+                        });
+
+                        usuarioModel.registrarLogin(emailNome)
+
+                    } else {
                         res.status(403).send("Email ou nome de usuário e/ou senha inválido(s)");
                     }
                 }
@@ -54,21 +62,37 @@ function cadastrar(req, res) {
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, senha, genero, dtNasc, nacionalidade, oshi)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
+        usuarioModel.verificarCadastro(nome, email).then(
+            function (resultadoVerificar){
+                console.log(`\nResultados encontrados: ${resultadoVerificar.length}`);
+                console.log(`Resultados: ${JSON.stringify(resultadoVerificar)}`);
+
+                if(!resultadoVerificar.length){
+                    usuarioModel.cadastrar(nome, email, senha, genero, dtNasc, nacionalidade, oshi)
+                        .then(
+                            function (resultado) {
+                                res.json(resultado);
+                            }
+                        ).catch(
+                            function (erro) {
+                                console.log(erro);
+                                console.log(
+                                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                                    erro.sqlMessage
+                                );
+                            }
+                        );
+                }else{
+                    res.status(403).json({erro: 'Email ou Nome de Usuário já cadastrados'});
                 }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("\nHouve um erro ao verificar o cadastro! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
     }
 }
 
