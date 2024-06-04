@@ -20,6 +20,7 @@ var agenciaRouter = require("./src/routes/agencia");
 var geracaoRouter = require("./src/routes/geracao");
 var vtuberRouter = require("./src/routes/vtuber");
 var usuarioRouter = require("./src/routes/usuario");
+var contatoRouter = require("./src/routes/contato");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -32,6 +33,7 @@ app.use("/agencias", agenciaRouter);
 app.use("/geracao", geracaoRouter);
 app.use("/vtuber", vtuberRouter);
 app.use("/usuario", usuarioRouter);
+app.use("/contato", contatoRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`
