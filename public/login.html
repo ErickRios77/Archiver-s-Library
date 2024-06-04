@@ -5,22 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Archiver's Library - Login</title>
+    <link rel="icon" type="image/x-icon" href="./assets/Logo.svg">
+
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <script src="./js/login.js"></script>
 </head>
 
 <body>
-    <div class=""></div>
-    <div class="">
-        <div class="">
-            <div>
-                <label for="username">E-mail ou Nome de Usuário</label>
-                <input type="text" id="emailNome" placeholder="email@email.com"><br>
-                <label for="password">Senha de Acesso</label>
-                <input type="password" id="senha" placeholder="・・・・・・・・"><br>
-                <button type="submit" onclick="login()">login</button>
-            </div>
-            <span>Não tem uma conta? <a href="cadastro.html">Cadastre-se</a></span>
+    <div class="background">
+        <img src="./assets/Logo-header.svg" alt="" class="logo">
+    </div>
+    <div class="loginContainer">
+        <a href="./index.html"><i class="fa-solid fa-arrow-left"></i> Voltar a home</a>
+        <h1>Realize seu login</h1>
+        <div class="loginForm">
+            <label for="emailNome">E-mail ou Nome de Usuário</label>
+            <input type="text" id="emailNome" placeholder="email@email.com">
+            <label for="senha">Senha de Acesso</label>
+            <input type="password" id="senha" placeholder="・・・・・・・">
+            <button type="submit" onclick="login()">Login</button>
+            <span>Não tem uma conta? <a href="cadastro.html">Cadastre-se!</a></span>
         </div>
     </div>
 </body>

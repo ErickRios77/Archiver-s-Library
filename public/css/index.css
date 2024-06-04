@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+html,body {
+    margin: 0;
+    width: 100vw;
+    font-family: 'Barlow', ' Segoe UI', ' Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth !important;
+    font-weight: bold;
+    color: #181D26;
+    background-image: url("../assets/Library-background.jpg");
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+/* Header */
+.header-container{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+header {
+    background-color: #D9D9D9;
+    position: fixed;
+    width: 100vw;
+    top: 0;
+
+    z-index: 1;
+
+    &:before,
+    &:after {
+        background: inherit;
+        content: '';
+        display: block;
+        height: 50%;
+        left: 0;
+        position: absolute;
+        right: 0;
+        z-index: -1;
+    }
+
+    &:after {
+        bottom: 0;
+        transform: skewY(-1.5deg);
+        transform-origin: 100%;
+        border-bottom: 4px solid black;
+    }
+}
+
+.logo{
+    height: 84px;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    display: flex;
+}
+
+li{
+    margin-left: 15px;
+}
+
+li:last-child {
+    border: 3px solid #181D26;
+    border-radius: 20px;
+    padding: 2%;
+}
+
+li:has(a:hover){
+    border-color: #181d26a8;
+}
+
+a {
+    text-decoration: none;
+    color: #181D26;
+    font-weight: bold;
+    font-size: larger;
+    transition: 0.3s;
+    text-wrap: nowrap;
+
+    &:hover{
+        transition: 0.3s;
+        color: #181d26a8;
+    }
+}
+
+/* Conteudo principal */
+#inicio {
+    width: 100vw;
+    height: 100vh;
+    background-color: transparent;
+    position: relative;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: brightness(30%);
+}
+
+#inicio .logo {
+    scale: 2;
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+}
+
+a:has(i){
+    position: absolute;
+    bottom: 2%;
+}
+
+a i#arrowDown{
+    animation: cimaBaixo 1.5s linear infinite;
+    color: white;
+    font-size: 30px;
+    position: absolute;
+}
+
+@keyframes cimaBaixo{
+    0%, 100% {
+        bottom: 30px;
+      }
+      50% {
+        bottom: 20px;
+      }
+}
+
+.sobre{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100vw;
+    height: 100vh;
+}
+
+.textoSobre{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    margin: auto;
+    font-size: 1.5vw;
+}
+
+.textoSobre a{
+    text-decoration: underline 2px;
+}
+
+.imagemSobre{
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
+
+#sobreLibrary {
+    background-color: #F2F2F2;
+}
+
+#sobreLibrary .imagemSobre img{
+    width: 20vw;
+}
+
+#sobreVtubers{
+    background-color: #98919B;
+}
+
+#sobreVtubers .imagemSobre img{
+    border-radius: 20px;
+    width: 40vw;
+}
+
+.contato {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: #F2F2F2;
+}
+
+.contatoMsg{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contatoMsg h1{
+    width: 70%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    text-shadow:1.5px 0px 1px #f2f2f28a;
+    scale: 1.1;
+}
+
+.contatoForm{
+    width: 80%;
+    height: 60%;
+    margin: auto;
+    background-color: #BFA4BD;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    border: 2px solid black 
+}
+
+.contatoFormInner{
+    width: 80%;
+    height: 80%;
+    position: relative;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+label{
+    position: relative;
+    margin-left: 5%;
+    margin-bottom: 1%;
+}
+
+input, textarea{
+    border-radius: 5px;
+    background-color: #F2F2F2;
+    border: transparent;
+    width: 80%;
+    margin: 0 auto 3% auto;
+    padding: 3% 4%;
+    border: 2px solid rgba(0, 0, 0, 0.637);
+    font-size: .9rem;
+
+    &:focus{
+        border: 2.8px solid black;
+        outline:none;
+    }
+}
+
+input{
+    height: 10%;
+}
+
+textarea{
+    height: 50%;
+    resize: none;
+    margin-bottom: 0;
+}
+
+.contatoFormInner span{
+    margin-left: auto;
+    margin-right: 5%;
+}
+
+button{
+    width: 40%;
+    height: 20%;
+    margin: auto;
+    border-radius: 10px;
+    color: #181D26;
+    font-weight: bold;
+    border: 2px solid black;
+}
+
+
+/* Footer */
+footer {
+    background-color: #D9D9D9;
+    width: 100vw;
+    height: 84px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #181D26;
+    font-weight: bold;
+    font-size: larger;
+
+
+    position: relative;
+    z-index: 1;
+
+    &:before,
+    &:after {
+        background: inherit;
+        content: '';
+        display: block;
+        height: 50%;
+        left: 0;
+        position: absolute;
+        right: 0;
+        z-index: -1;
+    }
+
+    &:before {
+        top: 0;
+        transform: skewY(-1.5deg);
+        transform-origin: 0% 0;
+        border-top: 4px solid black;
+    }
+}

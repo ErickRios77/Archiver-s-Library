@@ -5,22 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Archiver's Library - Archives</title>
+    <link rel="icon" type="image/x-icon" href="../assets/Logo.svg">
+
+    <link rel="stylesheet" href="../css/home.css">
 
     <script src="../js/home.js"></script>
     <script src="../js/sessao.js"></script>
 </head>
 
-<body onload="listarVtubers()" style="margin: 0;width: 100vw;">
-    <header style="background-color: #D9D9D9; display: flex; justify-content: space-between; align-items: center; padding: 0 30px 0 30px;">
-        <img src="../assets/Logo-header.png" height="84px" alt="Logo do projeto Archiver's Library">
-        <button onclick="limparSessao()">Sair</button>
-    </header>
-    <div style=" display: flex;justify-content: center;padding: 10px">
-        <div style="width: 90%;">
-            <div id="containerCards" style="display: grid; grid-gap: 30px; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));">
-            </div>
+<body onload="listarVtubers();" style="margin: 0;width: 100vw;">
+    <header>
+        <div class="header-container">
+            <img src="../assets/Logo-header.svg" class="logo" alt="Logo do projeto Archiver's Library">
+            <ul class="navbar">
+                <li>
+                    <a href="#">Vtubers</a>
+                </li>
+                <li>
+                    <a href="#">Agências</a>
+                </li>
+                <li>
+                    <span onclick="limparSessao()">Sair</span>
+                </li>
+            </ul>
         </div>
+    </header>
+    <div class="containerVtubers">
+        <div id="containerCards"></div>
     </div>
+    <footer> - Archiver's Library - </footer>
 </body>
 
 </html>

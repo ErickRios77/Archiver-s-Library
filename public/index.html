@@ -5,11 +5,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Archiver's Library - Home</title>
+    <link rel="icon" type="image/x-icon" href="./assets/Logo.svg">
+
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="./js/index.js"></script>
 </head>
 
 <body>
-    <img src="./assets/Logo-header.png" alt="">
-    <a href="./login.html">Login</a>
+    <header>
+        <div class="header-container">
+            <a href="#inicio">
+                <img src="./assets/Logo-header.svg" class="logo" alt="Logo do projeto Archiver's Library">
+            </a>
+            <ul class="navbar">
+                <li>
+                    <a href="#sobreLibrary">O projeto</a>
+                </li>
+                <li>
+                    <a href="#sobreVtubers">Vtubers</a>
+                </li>
+                <li>
+                    <a href="#contato">Contato</a>
+                </li>
+                <li>
+                    <a href="login.html">Login</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <div id="inicio">
+        <img src="./assets/Logo-header.svg" alt="" class="logo">
+        <a href="#sobreLibrary">
+            <i class="fa-solid fa-angle-down" id="arrowDown"></i>
+        </a>
+    </div>
+    <div id="sobreLibrary">
+        <div class="sobre">
+            <div class="textoSobre">
+                <h1>Sobre o Projeto</h1>
+                <span>O Archiver's Library é um arquivo digital onde os fans de <a href="#sobreVtubers">Vtubers</a> podem se perder em um mar de informações. 
+                Como uma biblioteca meticulosamente organizada, este website é o epicentro da cultura Vtuber, 
+                abrigando uma coleção abrangente de dados. Com uma interface intuitiva e fácil de navegar, 
+                os visitantes podem explorar os recantos mais obscuros do mundo dos Vtubers. 
+                Seja você um novato curioso ou um veterano ávido por mais conhecimento, 
+                o Archiver's Library é o destino definitivo para os amantes dos Vtubers.</span>
+            </div>
+            <div class="imagemSobre">
+                <img src="./assets/Logo.svg">
+            </div>
+        </div>
+    </div>
+    <div id="sobreVtubers">
+        <div class="sobre">
+            <div class="imagemSobre">
+                <img src="./assets/VTubers-1.png">
+            </div>
+            <div class="textoSobre">
+                <h1>O que são vtubers?</h1>
+                VTubers, ou "Virtual YouTubers", são criadores de conteúdo que utilizam avatares digitais animados em tempo real para
+                produzir vídeos e transmissões ao vivo, principalmente no YouTube e Twitch. Inspirados na estética de anime, esses
+                avatares permitem que os criadores interajam com o público de forma única, mantendo sua identidade real oculta.
+                Popularizados no Japão em 2016, os VTubers se espalharam pelo mundo, com empresas como Hololive e Nijisanji liderando o
+                mercado. Eles realizam atividades diversas, como jogar videogames, cantar e conversar com fãs, oferecendo uma
+                experiência envolvente e inovadora.
+            </div>
+        </div>
+    </div>
+    <div id="contato" class="contato">
+        <div class="contatoMsg">
+            <h1>POSSUI ALGUMA DÚVIDA, PROBLEMA OU SUGESTÃO?</h1>
+            <h1>ENTRE EM CONTATO!</h1>
+        </div>
+        <div class="contatoForm">
+            <div class="contatoFormInner">
+                <label for="email">E-mail</label>
+                <input type="text" id="email" maxlength="45">
+                <label for="assunto">Assunto</label>
+                <input type="text" id="assunto" maxlength="45">
+                <label for="msg">Mensagem</label>
+                <textarea id="msg" maxlength="1000" oninput="contarCaracteres()"></textarea>
+                <span id="charCount">0/1000</span>
+                <button onclick="enviarMsg()">Enviar Mensagem</button>
+            </div>
+        </div>
+    </div>
+    <footer> - Archiver's Library - </footer>
 </body>
+    
 
 </html>
