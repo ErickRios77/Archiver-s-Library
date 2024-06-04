@@ -25,7 +25,7 @@ CREATE TABLE vtuber(
     fanName VARCHAR(45),
     oshiMark VARCHAR(3),
     ilustrador VARCHAR(45),
-    modelVtuber VARCHAR(154) DEFAULT '/assets/Logo.png',
+    modelVtuber VARCHAR(154) DEFAULT '/assets/Logo.svg',
     fkAgencia INT DEFAULT 1,
     fkGeracao INT,
     FOREIGN KEY (fkAgencia) REFERENCES agencia(idAgencia),
@@ -62,7 +62,7 @@ CREATE TABLE historicoLogin(
 );
 
 CREATE TABLE contato(
-    idContato INT PRIMARY KEY,
+    idContato INT PRIMARY KEY AUTO_INCREMENT,
     emailContato VARCHAR(156) NOT NULL,
     assuntoContato VARCHAR(45),
     msgContato VARCHAR(1000),
@@ -70,7 +70,7 @@ CREATE TABLE contato(
 );
 
 INSERT INTO agencia(nomeAgencia, logoAgencia)
-VALUES  ('Independente', '/assets/Logo.png'),
+VALUES  ('Independente', '/assets/Logo.svg'),
         ('V-Dere', '/assets/agencias/vdere-icon.png');
 
 INSERT INTO geracao(nomeGeracao, fkAgencia)
