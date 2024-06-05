@@ -7,13 +7,14 @@ function infoVtuber(idVtuber) {
             if (vtubers.length>0) {
                 vtubers.forEach((vtuber) => {
                     document.title += ' ' + vtuber.nomeVtuber;
-
-                    nome.innerHTML = vtuber.nomeVtuber;
-                    desc.innerHTML = vtuber.descVtuber;
-                    debut.innerHTML = vtuber.dtDebutVtuber;
-                    fan.innerHTML = vtuber.fanName;
-                    mark.innerHTML = vtuber.oshiMark;
-                    ilust.innerHTML = vtuber.ilustrador;
+                    imgVtuber.src = `..${vtuber.modelVtuber}`;
+                    nome.innerHTML += `${vtuber.nomeVtuber}<a href="./agencia.html?id=${vtuber.idAgencia}"><img src="..${vtuber.logoAgencia}" class="agencia"></a>`;
+                    desc.innerHTML += vtuber.descVtuber;
+                    debut.innerHTML += vtuber.dtDebutVtuber;
+                    geracao.innerHTML += vtuber.nomeGeracao
+                    fan.innerHTML += vtuber.fanName;
+                    mark.innerHTML += vtuber.oshiMark;
+                    ilust.innerHTML += vtuber.ilustrador;
                 });
             } else {
                 document.title = `Archiver's Library - Página não encontrada`;

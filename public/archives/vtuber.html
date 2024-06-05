@@ -1,20 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Archiver's Library - </title>
 
+    <link rel="stylesheet" href="../css/vtuber.css">
+
     <script src="../js/vtuber.js"></script>
 </head>
+
 <body>
-    <div id="nome"></div>
-    <div id="desc"></div>
-    <div id="debut"></div>
-    <div id="fan"></div>
-    <div id="mark"></div>
-    <div id="ilust"></div>
+    <header>
+        <div class="header-container">
+            <img src="../assets/Logo-header.svg" class="logo" alt="Logo do projeto Archiver's Library">
+            <ul class="navbar">
+                <li>
+                    <a href="index.html">Vtubers</a>
+                </li>
+                <li>
+                    <a href="agencias.html">Agências</a>
+                </li>
+                <li>
+                    <span onclick="limparSessao()">Sair</span>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <div class="containerVtubers">
+        <div class="imgVtuber">
+            <img id="imgVtuber">
+        </div>
+        <div class="infoVtuber">
+            <h1 id="nome"></h1>
+            <div id="desc"></div>
+            <div id="debut">Debut: </div>
+            <div id="geracao">Geração: </div>
+            <div id="fan">FanName: </div>
+            <div id="mark">Fan Mark: </div>
+            <div id="ilust">Ilustrador: </div>
+        </div>    
+    </div>
+    <footer> - Archiver's Library - </footer>
 </body>
+
 </html>
 
 <script>
