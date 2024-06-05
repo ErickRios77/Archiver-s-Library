@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archiver's Library - Archives</title>
+    <link rel="icon" type="image/x-icon" href="../assets/Logo.svg">
+
+    <link rel="stylesheet" href="../css/home.css">
+
+    <script src="../js/vtubersAgencia.js"></script>
+    <script src="../js/sessao.js"></script>
+</head>
+
+<body style="margin: 0;width: 100vw;">
+    <header>
+        <div class="header-container">
+            <img src="../assets/Logo-header.svg" class="logo" alt="Logo do projeto Archiver's Library">
+            <ul class="navbar">
+                <li>
+                    <a href="index.html">Vtubers</a>
+                </li>
+                <li>
+                    <a href="agencias.html">Agências</a>
+                </li>
+                <li>
+                    <span onclick="limparSessao()">Sair</span>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <h1>sla</h1>
+    <div class="containerVtubers">
+        <div id="containerCards"></div>
+    </div>
+    <footer> - Archiver's Library - </footer>
+</body>
+
+</html>
+
+<script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const id = urlParams.get('id')
+    window.onload = listarVtubers(id)
+</script>

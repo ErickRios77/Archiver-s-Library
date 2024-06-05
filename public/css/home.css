@@ -128,6 +128,12 @@ span {
     object-position: top;
 }
 
+.cardImg.homeAgencia{
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+}
+
 h3 {
     overflow-wrap: break-word;
     margin-bottom: 40px

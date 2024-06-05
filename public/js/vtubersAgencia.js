@@ -1,15 +1,16 @@
-function listarVtubers(){
-    fetch("/vtuber/listar",{
+function listarVtubers(idAgencia) {
+    var idAgenciaVar = idAgencia
+    fetch(`/vtuber/buscarAgencia/${idAgenciaVar}`, {
         method: "GET",
-    }).then(function(resposta){
-        resposta.json().then((vtubers)=>{
+    }).then(function (resposta) {
+        resposta.json().then((vtubers) => {
             vtubers.forEach((vtuber) => {
-                containerCards.innerHTML+=`
+                containerCards.innerHTML += `
                     <div class="cards">
                         <img src="..${vtuber.modelVtuber}" class="cardImg">
                         <h3 id="${vtuber.idVtuber}">
                             ${vtuber.nomeVtuber}
-                            <a href="./agencia.html?id=${vtuber.idAgencia}"><img src="..${vtuber.logoAgencia}" class="agencia"></a>
+                            <img src="../${vtuber.logoAgencia}" class="agencia">
                         </h3>
                         <button onclick="paginaVtuber(${vtuber.idVtuber})">Saiba Mais</button>
                     </div>
@@ -21,6 +22,6 @@ function listarVtubers(){
     });
 }
 
-function paginaVtuber(idVtuber){
+function paginaVtuber(idVtuber) {
     window.location = `./vtuber.html?id=${idVtuber}`
 }

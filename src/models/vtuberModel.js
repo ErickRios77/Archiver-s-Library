@@ -13,9 +13,15 @@ function cadastrar() {
 }
 
 function buscarPorId(idVtuber) {
-    var instrucaoSql = `SELECT nomeVtuber, descVtuber, DATE_FORMAT(dtDebutVtuber,'%d/%m/%Y') dtDebutVtuber, fanName, oshiMark, ilustrador FROM vtuber WHERE idVtuber = ${idVtuber}`;
+    var instrucaoSql = `SELECT nomeVtuber, descVtuber, DATE_FORMAT(dtDebutVtuber,'%d/%m/%Y') dtDebutVtuber, fanName, oshiMark, ilustrador, modelVtuber, idAgencia, nomeAgencia, logoAgencia, nomeGeracao FROM vtuber JOIN agencia ON fkAgencia = idAgencia JOIN geracao on fkGeracao = idGeracao WHERE idVtuber = ${idVtuber}`;
 
     return database.executar(instrucaoSql);
 }
 
-module.exports = { cadastrar, listar, buscarPorId };
+function buscarPorAgencia(idAgencia){
+    var instrucaoSql = `SELECT * FROM vtuber JOIN agencia ON fkAgencia = idAgencia WHERE idAgencia = ${idAgencia}`;
+
+    return database.executar(instrucaoSql);
+}
+
+module.exports = { cadastrar, listar, buscarPorId, buscarPorAgencia };

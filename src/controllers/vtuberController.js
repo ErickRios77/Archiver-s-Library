@@ -38,8 +38,16 @@ function buscarPorId(req, res){
     });
 }
 
+function buscarPorAgencia(req, res){
+    var idAgencia = req.params.idAgencia
+    vtuberModel.buscarPorAgencia(idAgencia).then((resultado) =>{
+        res.status(200).json(resultado);
+    })
+}
+
 module.exports = {
     cadastrar,
     listar,
-    buscarPorId
+    buscarPorId,
+    buscarPorAgencia
 };
