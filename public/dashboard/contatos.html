@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Contatos</title>
+    <link rel="icon" type="image/x-icon" href="../assets/Logo.svg">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="../css/dashboard.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/sessao.js"></script>
+    <script src="../js/dashboardIndex.js"></script>
+</head>
+
+<body onload="listarContatos(); validarADM();">
+    <sidebar>
+        <img src="../assets/Logo.svg">
+        <div>
+            <ul>
+                <li><a href="index.html">Geral</a></li>
+                <li><a href="agencias.html">Agencias</a></li>
+                <li><a href="geracoes.html">Gerações</a></li>
+                <li><a href="vtubers.html">Vtubers</a></li>
+                <li><a href="usuarios.html">Usuários</a></li>
+                <li><a href="contatos.html">Contatos</a></li>
+                <li><span onclick="limparSessao()">Sair</span></li>
+            </ul>
+
+        </div>
+    </sidebar>
+    <content>
+        <div class="divTabela">
+            <table id="tabela">
+                <tr>
+                    <th>Email</th>
+                    <th>Assunto</th>
+                    <th>Mensagem</th>
+                    <th>Data</th>
+                </tr>
+            </table>
+        </div>
+    </content>
+</body>
+
+</html>

@@ -1,5 +1,11 @@
 var usuarioModel = require("../models/usuarioModel");
 
+function listar(req, res) {
+    usuarioModel.listar().then((resultado) => {
+        res.status(200).json(resultado);
+    });
+}
+
 function autenticar(req, res) {
     var emailNome = req.body.emailNomeServer;
     var senha = req.body.senhaServer;
@@ -97,6 +103,7 @@ function cadastrar(req, res) {
 }
 
 module.exports = {
+    listar,
     autenticar,
     cadastrar
 }

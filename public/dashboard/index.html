@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Home</title>
+    <link rel="icon" type="image/x-icon" href="../assets/Logo.svg">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="../css/dashboard.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/sessao.js"></script>
+    <script src="../js/dashboardIndex.js"></script>
+</head>
+<body onload="popularIndex(); validarADM();">
+    <sidebar>
+        <img src="../assets/Logo.svg">
+        <div>
+            <ul>
+                <li><a href="index.html">Geral</a></li>
+                <li><a href="agencias.html">Agencias</a></li>
+                <li><a href="geracoes.html">Gerações</a></li>
+                <li><a href="vtubers.html">Vtubers</a></li>
+                <li><a href="usuarios.html">Usuários</a></li>
+                <li><a href="contatos.html">Contatos</a></li>
+                <li><span onclick="limparSessao()">Sair</span></li>
+            </ul>
+        </div>
+    </sidebar>
+    <content>
+        <div class="cards">
+            <div class="card">
+                <h2>Usuários Registrados</h2>
+                <div class="cardData" id="qtdRegistrados">0</div>
+            </div>
+            <div class="card">
+                <h2>Registros em 24hrs</h2>
+                <div class="cardData" id="qtdRegistradosHoje">0</div>
+            </div>
+            <div class="card">
+                <h2>Usuários com Oshis</h2>
+                <div class="cardData" id="qtdComOshi">0</div>
+            </div>
+        </div>
+        <div style="height: 60%; width: 100%; display: flex; justify-content: center;">
+            <canvas id="myChart"></canvas>
+        </div>
+    </content>
+</body>
+</html>

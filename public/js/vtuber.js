@@ -9,6 +9,7 @@ function infoVtuber(idVtuber) {
                     document.title += ' ' + vtuber.nomeVtuber;
                     imgVtuber.src = `..${vtuber.modelVtuber}`;
                     nome.innerHTML += `${vtuber.nomeVtuber}<a href="./agencia.html?id=${vtuber.idAgencia}"><img src="..${vtuber.logoAgencia}" class="agencia"></a>`;
+                    apelido.innerHTML += vtuber.apelido;
                     desc.innerHTML += vtuber.descVtuber;
                     debut.innerHTML += vtuber.dtDebutVtuber;
                     geracao.innerHTML += vtuber.nomeGeracao

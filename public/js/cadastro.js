@@ -103,9 +103,9 @@ function listarPaises(){
                     }
                     return 0;
                 });
-                paises.forEach((pais) => {
-                    nacionalidade.innerHTML += `<option value='${pais.cca3}'>${pais.name.common}</option>`;
-                });
+                for(let i = 0; i<paises.length;i++){
+                    nacionalidade.innerHTML += `<option value='${paises[i].cca3}'>${paises[i].name.common}</option>`
+                }
             });
         })
         .catch(function (resposta) {

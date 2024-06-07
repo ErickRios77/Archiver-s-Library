@@ -1,7 +1,7 @@
 var database = require("../database/config");
 
 function listar(){
-    var instrucaoSql = `SELECT * FROM vtuber JOIN agencia ON fkAgencia = idAgencia;`;
+    var instrucaoSql = `SELECT * FROM vtuber JOIN apelido ON fkVtuber = idVtuber JOIN agencia ON fkAgencia = idAgencia JOIN geracao ON fkGeracao = idGeracao;`;
 
     return database.executar(instrucaoSql);
 }
@@ -13,7 +13,7 @@ function cadastrar() {
 }
 
 function buscarPorId(idVtuber) {
-    var instrucaoSql = `SELECT nomeVtuber, descVtuber, DATE_FORMAT(dtDebutVtuber,'%d/%m/%Y') dtDebutVtuber, fanName, oshiMark, ilustrador, modelVtuber, idAgencia, nomeAgencia, logoAgencia, nomeGeracao FROM vtuber JOIN agencia ON fkAgencia = idAgencia JOIN geracao on fkGeracao = idGeracao WHERE idVtuber = ${idVtuber}`;
+    var instrucaoSql = `SELECT nomeVtuber, apelido, descVtuber, DATE_FORMAT(dtDebutVtuber,'%d/%m/%Y') dtDebutVtuber, fanName, oshiMark, ilustrador, modelVtuber, idAgencia, nomeAgencia, logoAgencia, nomeGeracao FROM vtuber JOIN apelido ON fkVtuber = idVtuber JOIN agencia ON fkAgencia = idAgencia JOIN geracao on fkGeracao = idGeracao WHERE idVtuber = ${idVtuber}`;
 
     return database.executar(instrucaoSql);
 }

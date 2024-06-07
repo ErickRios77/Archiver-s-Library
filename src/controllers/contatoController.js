@@ -1,5 +1,11 @@
 var contatoModel = require("../models/contatoModel");
 
+function listar(req, res) {
+    contatoModel.listar().then((resultado) => {
+        res.status(200).json(resultado);
+    });
+}
+
 function cadastrar(req, res){
     var email = req.body.emailServer;
     var assunto = req.body.assuntoServer;
@@ -29,5 +35,6 @@ function cadastrar(req, res){
 }
 
 module.exports = {
+    listar,
     cadastrar
 }

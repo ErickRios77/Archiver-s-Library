@@ -1,8 +1,8 @@
-var agenciaModel = require("../models/agenciaModel");
+var geracaoModel = require("../models/geracaoModel");
 
 
 function listar(req, res) {
-    agenciaModel.listar().then((resultado) => {
+    geracaoModel.listar().then((resultado) => {
         res.status(200).json(resultado);
     });
 }
@@ -10,3 +10,4 @@ function listar(req, res) {
 module.exports = {
     listar
 };
+    

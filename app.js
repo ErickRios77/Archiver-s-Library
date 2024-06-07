@@ -21,6 +21,7 @@ var geracaoRouter = require("./src/routes/geracao");
 var vtuberRouter = require("./src/routes/vtuber");
 var usuarioRouter = require("./src/routes/usuario");
 var contatoRouter = require("./src/routes/contato");
+var dashboardRouter = require("./src/routes/dashboard");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -34,6 +35,7 @@ app.use("/geracao", geracaoRouter);
 app.use("/vtuber", vtuberRouter);
 app.use("/usuario", usuarioRouter);
 app.use("/contato", contatoRouter);
+app.use("/dashboard", dashboardRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`
